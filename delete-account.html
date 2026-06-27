@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account – TestPrep Pro</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #F8FAFC; color: #334155; line-height: 1.6; }
+    header { background: #1A56DB; color: #fff; padding: 40px 24px 32px; }
+    header h1 { font-size: 28px; font-weight: 700; }
+    header p { margin-top: 6px; font-size: 14px; opacity: 0.85; }
+    main { max-width: 600px; margin: 0 auto; padding: 40px 24px 80px; }
+    .notice { background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 10px; padding: 16px 18px; font-size: 13px; color: #92400E; margin-bottom: 32px; }
+    .notice strong { display: block; margin-bottom: 4px; font-size: 14px; }
+    label { display: block; font-size: 14px; font-weight: 600; color: #0F172A; margin-bottom: 6px; }
+    .hint { font-size: 12px; color: #94A3B8; font-weight: 400; margin-left: 4px; }
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #0F172A;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 22px;
+    }
+    input:focus, textarea:focus, select:focus { border-color: #1A56DB; }
+    textarea { resize: vertical; min-height: 100px; }
+    .radio-group, .check-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+    .radio-group label, .check-group label { display: flex; align-items: center; gap: 10px; font-weight: 400; color: #334155; cursor: pointer; }
+    .radio-group input[type="radio"],
+    .check-group input[type="checkbox"] {
+      width: 16px; height: 16px; accent-color: #1A56DB;
+      margin: 0; flex-shrink: 0;
+    }
+    .confirm-box { background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 10px; padding: 16px 18px; margin-bottom: 28px; }
+    .confirm-box label { display: flex; align-items: flex-start; gap: 10px; font-weight: 400; font-size: 13px; color: #9F1239; cursor: pointer; }
+    .confirm-box input[type="checkbox"] { margin-top: 2px; width: 15px; height: 15px; accent-color: #E11D48; flex-shrink: 0; }
+    button[type="submit"] {
+      width: 100%;
+      background: #DC2626;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button[type="submit"]:hover { background: #B91C1C; }
+    .field { margin-bottom: 4px; }
+    .section-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #94A3B8; margin: 32px 0 16px; }
+    #success { display: none; text-align: center; padding: 48px 24px; }
+    #success h2 { font-size: 22px; color: #0F172A; margin-bottom: 12px; }
+    #success p { color: #64748B; font-size: 14px; }
+    #success a { color: #1A56DB; }
+    footer { text-align: center; font-size: 13px; color: #94A3B8; padding: 24px; border-top: 1px solid #E2E8F0; }
+    a { color: #1A56DB; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Account Deletion Request</h1>
+    <p>TestPrep Pro</p>
+  </header>
+
+  <main>
+    <div class="notice">
+      <strong>What happens when your account is deleted?</strong>
+      Your profile, test history, scores, and all associated data will be permanently removed within 7 business days. This action cannot be undone.
+    </div>
+
+    <form id="deleteForm" action="https://formspree.io/f/gautambhatt1506@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="TestPrep Pro – Account Deletion Request" />
+      <input type="hidden" name="_next" value="" />
+
+      <p class="section-title">Your Details</p>
+
+      <div class="field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+      </div>
+
+      <div class="field">
+        <label for="email">Registered Email Address</label>
+        <input type="email" id="email" name="email" placeholder="The email used to sign in" required />
+      </div>
+
+      <p class="section-title">Reason for Deletion</p>
+
+      <div class="field">
+        <label>Why are you deleting your account? <span class="hint">(select one)</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="reason" value="No longer need the app" required /> I no longer need the app</label>
+          <label><input type="radio" name="reason" value="Privacy concerns" /> I have privacy concerns</label>
+          <label><input type="radio" name="reason" value="Switching to another service" /> I am switching to another service</label>
+          <label><input type="radio" name="reason" value="Technical issues" /> I am experiencing technical issues</label>
+          <label><input type="radio" name="reason" value="Content not relevant" /> The content is not relevant to me</label>
+          <label><input type="radio" name="reason" value="Other" /> Other</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="experience">How would you rate your overall experience? <span class="hint">(optional)</span></label>
+        <select id="experience" name="experience">
+          <option value="">-- Select --</option>
+          <option>Excellent</option>
+          <option>Good</option>
+          <option>Average</option>
+          <option>Poor</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="comments">Additional Comments <span class="hint">(optional)</span></label>
+        <textarea id="comments" name="comments" placeholder="Tell us anything else that would help us improve…"></textarea>
+      </div>
+
+      <p class="section-title">Confirmation</p>
+
+      <div class="confirm-box">
+        <label>
+          <input type="checkbox" name="confirmed" required />
+          I understand that deleting my account is permanent and irreversible. All my data, including test history and progress, will be erased.
+        </label>
+      </div>
+
+      <button type="submit">Submit Deletion Request</button>
+    </form>
+
+    <div id="success">
+      <h2>Request Received</h2>
+      <p>We have received your account deletion request and will process it within <strong>7 business days</strong>.<br /><br />
+      If you have any questions, email us at <a href="mailto:gautambhatt1506@gmail.com">gautambhatt1506@gmail.com</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 TestPrep Pro &nbsp;|&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp; <a href="terms.html">Terms of Use</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('deleteForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please email us directly at gautambhatt1506@gmail.com');
+      }
+    });
+  </script>
+</body>
+</html>
